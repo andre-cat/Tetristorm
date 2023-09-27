@@ -7,6 +7,7 @@ public class PlaneMovement : MonoBehaviour
 
     [Header("For the basic movement")]
     [Space(10)]
+    [Range(0.0f, 10.0f)]
     [SerializeField] private float speed = 5.0f;
 
     [Header("For the Sine Movement")]
