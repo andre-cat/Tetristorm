@@ -35,6 +35,7 @@ public class PlaneMovement : MonoBehaviour
         sinCenterY = transform.position.y;
         sinCenterZ = transform.position.z;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        InvokeRepeating("ChangingValuesWithTime", 3.0f, 3.0f);
     }
 
     void FixedUpdate()
@@ -94,6 +95,12 @@ public class PlaneMovement : MonoBehaviour
         transform.position = pos;
 
         // Es así de simple porque no habrá controlador por el humano del avión, solo es la cinemática de ser movido.
+    }
+
+    void ChangingValuesWithTime()
+    {
+        amplitude += 0.01f;
+        //frequency += 0.005f;
     }
 
 }

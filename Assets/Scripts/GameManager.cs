@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator ChangeScene()
     {
         crossFadeAnim.SetTrigger("SceneEnded");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
         SceneManager.LoadScene(1);
 
     }
