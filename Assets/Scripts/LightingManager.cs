@@ -104,8 +104,8 @@ public class LightingManager : MonoBehaviour
     readonly Dictionary<Momentum, float> momentumHours = new Dictionary<Momentum, float>
         {
             {Momentum.Sunny, 15.50f},
-            {Momentum.Cloudy, 18.00f},
-            {Momentum.Rainy, 18.25f},
+            {Momentum.Cloudy, 17.50f},
+            {Momentum.Rainy, 18.00f},
             {Momentum.Stormy, 18.50f},
         };
 
