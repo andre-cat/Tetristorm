@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        crossFadeAnim = GameObject.Find("PanelForTransition").GetComponent<Animator>();
+        crossFadeAnim = GameObject.Find("Panel").GetComponent<Animator>();
     }
 
     // Update is called once per frame
