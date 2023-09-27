@@ -47,7 +47,7 @@ public class PlaneMovement : MonoBehaviour
 
     void BasicMovement()
     {
-        Vector2 pos = transform.position;
+        Vector3 pos = transform.position;
 
         pos.x -= speed * Time.fixedDeltaTime;
 
