@@ -9,16 +9,17 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private Lighting lighting;
     [SerializeField][Range(0, 24)] private float dayTime;
     [SerializeField] Momentum momentum;
+    [SerializeField][Min(0)] float speed;
 
     private void Start()
     {
-        momentum = Momentum.Morning;
-        dayTime = (int)momentum;
+        momentum = Momentum.Sunny;
+        dayTime = momentumHours[momentum] - 0.01f;
     }
 
     private void Update()
     {
-        UpdateToHour((int)momentum);
+        UpdateToHour(momentumHours[momentum]);
     }
 
     private void UpdateToHour(float hour)
@@ -27,15 +28,15 @@ public class LightingManager : MonoBehaviour
         {
             if (Application.isPlaying)
             {
-                if (Math.Abs(hour - dayTime) > 0.1)
+                if (Math.Abs(hour - dayTime) > 0.01)
                 {
                     if (dayTime < hour)
                     {
-                        dayTime += Time.deltaTime;
+                        dayTime += speed;
                     }
                     else
                     {
-                        dayTime -= Time.deltaTime;
+                        dayTime -= speed;
                     }
                     dayTime %= 24;
                     UpdateLighting(dayTime / 24);
@@ -94,10 +95,18 @@ public class LightingManager : MonoBehaviour
 
     private enum Momentum
     {
-        Morning = 6,
-        Afternoon = 12,
-        Evening = 18,
-        Night = 24
+        Sunny,
+        Cloudy,
+        Rainy,
+        Stormy,
     }
+
+    readonly Dictionary<Momentum, float> momentumHours = new Dictionary<Momentum, float>
+        {
+            {Momentum.Sunny, 15.50f},
+            {Momentum.Cloudy, 18.00f},
+            {Momentum.Rainy, 18.25f},
+            {Momentum.Stormy, 18.50f},
+        };
 
 }
