@@ -33,13 +33,18 @@ public class PlaneMovement : MonoBehaviour
 
     void SineWaveMovement()
     {
+        //Halla el vector <pos> basado en la ubicación actual
         Vector3 pos = transform.position;
 
+        // Hallamos la componente Sin, que es una relación del eje X (Coseno) y frecuencia que multiplica a la altitud para dar los nodos y valles
         float sin = Mathf.Sin(pos.x * frequency) * amplitude;
-        if (isInverted)
+
+        /*if (isInverted)
         {
-            sin *= -1;
-        }
+            sin *= -1; //Aquí solo invierte el sentido del seno para que el movimiento sea al contrario.
+        }*/
+
+        sin = isInverted ? -sin : sin; // mi primera vez usando operadores Ternarios XD
         pos.y = sinCenterY + sin;
 
         transform.position = pos;
@@ -47,12 +52,13 @@ public class PlaneMovement : MonoBehaviour
 
     void BasicMovement()
     {
+        // Halla el vector pos de la posición actual del plane
         Vector3 pos = transform.position;
-
+        // Altera nada más la posición en X (si queremos cambiar a otro ojo solo es cambiar la x) al ponerle sustraerle la velocidad 
         pos.x -= speed * Time.fixedDeltaTime;
-
-
-
+        // Actualiza al nuevo valor de transform.position.
         transform.position = pos;
+
+        // Es así de simple porque no habrá controlador por el humano del avión, solo es la cinemática de ser movido.
     }
 }
