@@ -18,20 +18,24 @@ public class PlaneMovement : MonoBehaviour
 
     public bool isInverted = false;
 
+    // Calls
+    GameManager gameManager;
 
     void Start()
     {
         sinCenterY = transform.position.y;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void FixedUpdate()
     {
         BasicMovement();
         SineWaveMovement();
+        // Prueba del crossfade
         
     }
 
-    void SineWaveMovement()
+    void SineWaveMovement() 
     {
         //Halla el vector <pos> basado en la ubicación actual
         Vector3 pos = transform.position;
