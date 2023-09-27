@@ -28,13 +28,13 @@ public class PlaneMovement : MonoBehaviour
     public bool isInvertedZ = false;
 
     // Calls
-    GameManager gameManager;
+    GameManager gameManager; //used before but not used yet.
 
     void Start()
     {
         sinCenterY = transform.position.y;
         sinCenterZ = transform.position.z;
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); //waiting 
         InvokeRepeating("ChangingValuesWithTime", 3.0f, 3.0f);
     }
 
