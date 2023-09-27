@@ -10,6 +10,8 @@ public class Board : MonoBehaviour
 
     public int header = 8;
 
+    public int levelReached = 0;
+
     Transform[,] grid;
 
 
@@ -55,7 +57,9 @@ public class Board : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckLevelBoard();
 
+        Debug.Log(levelReached);
     }
 
     void DrawEmptyCell()
@@ -104,6 +108,52 @@ public class Board : MonoBehaviour
             }
         }
         return true;
+    }
+
+
+    public void CheckLevelBoard()
+    {
+
+        for (int x = 0; x < width; ++x)
+        {
+            if (grid[x, (int)height / 8] != null)
+            {
+                levelReached = 1;
+            }           
+            if (grid[x, height / 4] != null)
+            {
+                levelReached = 2;
+            }            
+            if (grid[x, (int)height / 2] != null )
+            {
+                levelReached = 3;
+            }           
+            if (grid[x, (int)height-header] != null)
+            {
+                levelReached = 4;
+            }            
+        }
+
+        //if (grid[(int)1, (int)height / 8] != null)
+        //{
+        //    levelReached = 1; 
+        //}
+
+        //if (grid[(int)1, (int)height / 4] != null)
+        //{
+        //    levelReached = 2;
+        //}
+
+        //if (grid[(int)1, (int)height / 2] != null)
+        //{
+        //    levelReached = 3;
+        //}
+
+        //if (grid[(int)1, (int)height-1] != null)
+        //{
+        //    levelReached = 4;
+        //}
+
     }
 
     void ClearRow(int y)
