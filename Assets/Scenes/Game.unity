@@ -1031,6 +1031,10 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 887705440156352447, guid: b2f6ba79cc54f0b4086fac770984f7f0, type: 3}
+      propertyPath: sceneNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 887705440156352447, guid: b2f6ba79cc54f0b4086fac770984f7f0, type: 3}
       propertyPath: crossFadeAnim
       value: 
       objectReference: {fileID: 782312799}
