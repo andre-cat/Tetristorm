@@ -169,6 +169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossFadeAnim: {fileID: 1187933842}
   crossfadeAnimClip: {fileID: 7400000, guid: a450beaeebd2fdb4a97e6f2c4e17b81c, type: 2}
+  sceneNumber: -1
+  scene:
+  - m_Handle: 0
+  - m_Handle: 0
 --- !u!1 &517964330
 GameObject:
   m_ObjectHideFlags: 0
