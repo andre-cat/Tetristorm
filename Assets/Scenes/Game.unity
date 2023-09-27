@@ -674,7 +674,10 @@ MonoBehaviour:
   speed: 5
   amplitude: 2
   frequency: 0.5
+  amplitudeZ: 1
+  frequencyZ: 0.5
   isInverted: 0
+  isInvertedZ: 1
 --- !u!1 &1379898022
 GameObject:
   m_ObjectHideFlags: 0

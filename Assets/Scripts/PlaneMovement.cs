@@ -14,9 +14,18 @@ public class PlaneMovement : MonoBehaviour
     [Space(5)]
     [SerializeField] private float amplitude = 2.0f;
     [SerializeField] private float frequency = 0.5f;
-    private float sinCenterY;
+    [Header("For the Sine Movement Horizontal")]
+    [Space(5)]
+    [SerializeField] private float amplitudeZ = 2.0f;
+    [SerializeField] private float frequencyZ = 0.5f;
 
+    private float sinCenterY;
+    private float sinCenterZ;
+
+    [Header("Booleans")]
+    [Space(5)]
     public bool isInverted = false;
+    public bool isInvertedZ = false;
 
     // Calls
     GameManager gameManager;
@@ -24,6 +33,7 @@ public class PlaneMovement : MonoBehaviour
     void Start()
     {
         sinCenterY = transform.position.y;
+        sinCenterZ = transform.position.z;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -31,6 +41,7 @@ public class PlaneMovement : MonoBehaviour
     {
         BasicMovement();
         SineWaveMovement();
+        SineWaveMovementHorizontal();
         // Prueba del crossfade
         
     }
@@ -54,6 +65,25 @@ public class PlaneMovement : MonoBehaviour
         transform.position = pos;
     }
 
+    void SineWaveMovementHorizontal()
+    {
+        //Halla el vector <pos> basado en la ubicación actual
+        Vector3 pos = transform.position;
+
+        // Hallamos la componente Sin, que es una relación del eje X (Coseno) y frecuencia que multiplica a la altitud para dar los nodos y valles
+        float sin = Mathf.Sin(pos.x * frequencyZ) * amplitudeZ;
+
+        /*if (isInverted)
+        {
+            sin *= -1; //Aquí solo invierte el sentido del seno para que el movimiento sea al contrario.
+        }*/
+
+        sin = isInvertedZ ? -sin : sin; // mi primera vez usando operadores Ternarios XD
+        pos.z = sinCenterZ + sin;
+
+        transform.position = pos;
+    }
+
     void BasicMovement()
     {
         // Halla el vector pos de la posición actual del plane
@@ -65,4 +95,5 @@ public class PlaneMovement : MonoBehaviour
 
         // Es así de simple porque no habrá controlador por el humano del avión, solo es la cinemática de ser movido.
     }
+
 }
