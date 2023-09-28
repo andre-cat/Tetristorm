@@ -19,15 +19,12 @@ public class PlaneMovement : MonoBehaviour
     public bool isInverted = false;
 
     // Calls
-    public Animator animAirplane;
-
     //
 
 
     void Start()
     {
         sinCenterY = transform.position.y;
-        animAirplane = GameObject.Find("Player").GetComponent<Animator>();
         InvokeRepeating("ChangingValuesWithTime", 3.0f, 3.0f);
     }
 
