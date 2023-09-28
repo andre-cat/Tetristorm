@@ -133,7 +133,6 @@ public class Board : MonoBehaviour
                 levelReached = 4;
             }            
         }
-
         //if (grid[(int)1, (int)height / 8] != null)
         //{
         //    levelReached = 1; 
