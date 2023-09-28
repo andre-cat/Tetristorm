@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3261290004706073115}
   - component: {fileID: 562800973220020758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RoundedShape (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b791b82487a4bd74ab65183da55be861, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5176471, g: 0.3372549, b: 0.85882354, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9852599746125611}
   - component: {fileID: 7442956764803430197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RoundedShape (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b791b82487a4bd74ab65183da55be861, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5176471, g: 0.3372549, b: 0.85882354, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6873862654832221530}
   - component: {fileID: 2286865059989151779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShapeZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8034510470396254510}
   - component: {fileID: 1630006190089374765}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RoundedShape (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b791b82487a4bd74ab65183da55be861, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5176471, g: 0.3372549, b: 0.85882354, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -311,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5162910978049990145}
   - component: {fileID: 4490949964680717416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RoundedShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b791b82487a4bd74ab65183da55be861, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.51403695, g: 0.33610713, b: 0.8584906, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

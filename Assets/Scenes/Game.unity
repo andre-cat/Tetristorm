@@ -575,11 +575,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174923309}
   m_CullTransparentMesh: 1
---- !u!1 &1199046060 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 490614915805490121, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
-  m_PrefabInstance: {fileID: 2118876004}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1268161357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -637,6 +632,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9671aeb1ac001fa458ec10966f13e6cc, type: 3}
+--- !u!4 &1617329475 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4936538082125919462, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
+  m_PrefabInstance: {fileID: 2118876004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1967105622
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +806,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -953,33 +953,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 490614915805490121, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2118876006}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
---- !u!4 &2118876005 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 974135443092697459, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
-  m_PrefabInstance: {fileID: 2118876004}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2118876006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199046060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f9601ea4a3bd9478dce4adb54540c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 2
-  frequency: 0.5
-  sin: 0
-  isInverted: 0
-  animAirplane: {fileID: 0}
 --- !u!114 &2027281330257502426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,7 +1027,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2118876005}
+  - {fileID: 1617329475}
   - {fileID: 2011467038}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

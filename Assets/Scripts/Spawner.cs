@@ -34,8 +34,6 @@ public class Spawner : MonoBehaviour
     {
         Vector2 originalVector = new Vector2(4.3f, 1.3f);
         Vector2 newVector = Vector2Int.RoundToInt(originalVector);
-
-        Debug.Log(newVector.ToString());
     }
 
     // Update is called once per frame

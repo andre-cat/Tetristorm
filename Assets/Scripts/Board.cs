@@ -22,6 +22,7 @@ public class Board : MonoBehaviour
 
     void Start()
     {
+        transform.position = new Vector3(-20.34f, -10.45f, 1.82f);
         DrawEmptyCell();
     }
 
@@ -59,7 +60,6 @@ public class Board : MonoBehaviour
     {
         CheckLevelBoard();
 
-        Debug.Log(levelReached);
     }
 
     void DrawEmptyCell()
@@ -74,6 +74,7 @@ public class Board : MonoBehaviour
                     clone = Instantiate(squareSprite, new Vector3(x, y, 0), Quaternion.identity) as Transform;
                     clone.name = "Board Space ( x = " + x.ToString() + ", y =" + y.ToString() + ")";
                     clone.transform.parent = transform;
+                    clone.gameObject.layer = LayerMask.NameToLayer("Board");
                 }
             }
         }
