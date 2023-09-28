@@ -418,7 +418,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 1eada3aa6e8ee3a428d7e61b60b5ebdd, type: 2}
     - target: {fileID: 7304325821942182747, guid: a8ca49ef1b7c3f542987d15edfce5dc2, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: CanvasCrossfade
       objectReference: {fileID: 0}
     - target: {fileID: 7304325821942182747, guid: a8ca49ef1b7c3f542987d15edfce5dc2, type: 3}
       propertyPath: m_IsActive
