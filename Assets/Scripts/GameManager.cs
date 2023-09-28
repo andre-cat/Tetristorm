@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            StartCoroutine(ChangeScene());
+            Wrapper();
         }
 
     }
@@ -30,5 +30,10 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(crossfadeAnimClip.length+0.5f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
         SceneManager.LoadScene(sceneNumber+1);
 
+    }
+
+    public void Wrapper()
+    {
+        StartCoroutine(ChangeScene());
     }
 }
