@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PanelController : MonoBehaviour
 {
@@ -12,14 +14,18 @@ public class PanelController : MonoBehaviour
     public float dropInterval = 0.2f;
     float timeToDrop;
 
+    ScoreManager scoreManager;
 
     float keyCoolDown;
-    public float keyRepeatRate = 0.1f;
+    public float keyRepeatRate = 0.1f; 
+
+    bool gameOver = false;
     void Start()
     {
         keyCoolDown = Time.time;
         gameBoard = GameObject.FindGameObjectWithTag("Board").GetComponent<Board>();
         spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>();
+        scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
 
         if (!gameBoard)
         {
@@ -37,6 +43,11 @@ public class PanelController : MonoBehaviour
         {
             Debug.Log("Not spawner set");
         }
+
+        if (!scoreManager)
+        {
+            Debug.Log("Create a Score Manager");
+        }
         
 
     }
@@ -44,32 +55,12 @@ public class PanelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameBoard || !spawner || !activeShape)
+        if (!gameBoard || !spawner || !activeShape || !scoreManager || gameOver)
         {
             return;
         }
 
-        CheckInput();
-
-        //if (Time.time > timeToDrop)
-        //{
-        //    timeToDrop = Time.time + dropInterval;
-        //    if (activeShape)
-        //    {
-        //        activeShape.MoveDown();
-
-        //        if (!gameBoard.IsValidPosition(activeShape))
-        //        {
-        //            activeShape.MoveUp();
-        //            gameBoard.SetPositionShapeInGrid(activeShape);
-
-        //            if (spawner)
-        //            {
-        //                activeShape = spawner.SpawnShape();
-        //            }
-        //        }
-        //    }
-        //}
+        CheckInput();     
     }
 
     void CheckInput()
@@ -113,7 +104,14 @@ public class PanelController : MonoBehaviour
 
             if (!gameBoard.IsValidPosition(activeShape))
             {
-            StopShapeLanded();
+                if (gameBoard.IsInLimit(activeShape))
+                {
+                    GameOver();
+                }
+                else
+                {
+                    StopShapeLanded();
+                }
             }
             
         }
@@ -128,5 +126,19 @@ public class PanelController : MonoBehaviour
         activeShape = spawner.SpawnShape();
 
         gameBoard.ClearAllRows();
+
+        if(gameBoard.completedRows > 0)
+        {
+            //Add sound effect
+
+            scoreManager.ScoreMultiplier(gameBoard.completedRows);
+        }
+    }
+
+    void GameOver()
+    {
+        activeShape.MoveUp();
+        Debug.Log("Limit reached");
+        gameOver = true;
     }
 }

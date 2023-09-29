@@ -13,6 +13,7 @@ public class Board : MonoBehaviour
     public int levelReached = 0;
 
     Transform[,] grid;
+    public int completedRows = 0;
 
 
     private void Awake()
@@ -180,14 +181,29 @@ public class Board : MonoBehaviour
 
     public void ClearAllRows()
     {
-        for(int y=0; y < height; ++y)
+        completedRows = 0;
+
+        for (int y=0; y < height; ++y)
         {
             if (IsRowComplete(y))
             {
+                completedRows++;
                 ClearRow(y);
                 MoveRowsDown(y + 1);
                 y--;
             }
         }
+    }
+
+    public bool IsInLimit(Shape shape)
+    {
+        foreach(Transform child in shape.transform)
+        {
+            if(child.transform.position.y >= (height - header - 1))
+            {
+                return true;
+            }
+        }
+        return  false;
     }
 }
