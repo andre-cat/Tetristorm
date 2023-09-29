@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-
+    
     private void StartComponents()
     {
         levelClip = levelClip_;
@@ -93,7 +93,6 @@ public class AudioManager : MonoBehaviour
     public static float crossfadeSeconds = 0.5f;
 
     private static readonly string VOLUME = "volume";
-    private static readonly string LEVEL = "level";
 
     public static float Volume
     {
