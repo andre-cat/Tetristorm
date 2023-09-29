@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour
 
     public void TogglePausePanel()
     {
-        Debug.Log("Paused");
         isPaused = !isPaused;
         if (pausePanel)
         {
