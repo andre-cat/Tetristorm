@@ -28,7 +28,7 @@ public class SFXManager : MonoBehaviour
 
     void SFXRepeating()
     {
-        i = Random.Range(0, thunderSFX.Length-1);
+        i = Random.Range(0, thunderSFX.Length);
         sfxAudioSource.clip = thunderSFX[i];
         sfxAudioSource.volume = Volume;
         sfxAudioSource.Play();
@@ -36,8 +36,7 @@ public class SFXManager : MonoBehaviour
 
     public void SFXTetris()
     {
-        index = Random.Range(0,tetrisSFX.Length-1);
-        //sfxAudioSource.clip = tetrisSFX[index];
+        index = Random.Range(0,tetrisSFX.Length);
         sfxAudioSource.volume = Volume;
         sfxAudioSource.PlayOneShot(tetrisSFX[index]);
     }
