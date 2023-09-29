@@ -11,18 +11,37 @@ public class PanelController : MonoBehaviour
 
     Shape activeShape;
 
-    public float dropInterval = 0.2f;
+    public float dropInterval = 0.9f;
     float timeToDrop;
 
     ScoreManager scoreManager;
 
-    float keyCoolDown;
-    public float keyRepeatRate = 0.1f; 
+
+    //[Range(0.02f,1f)]
+    //public float keyRepeatRate = 0.25f;
+
+    [Range(0.02f, 1f)]
+    public float keyRepeatRateHorizontal = 0.15f;
+
+    [Range(0.01f, 1f)]
+    public float keyRepeatRateDown = 0.01f;
+
+    [Range(0.02f, 1f)]
+    public float keyRepeatRateRotate = 0.25f;
+
+    float keyCoolDownDown;
+    float keyCoolDownHorizontal;
+    float keyCoolDownRotate;
 
     bool gameOver = false;
+
+    float horizontalInput;
+    float verticalInput;
     void Start()
     {
-        keyCoolDown = Time.time;
+        keyCoolDownDown = Time.time + keyRepeatRateDown;
+        keyCoolDownHorizontal = Time.time + keyRepeatRateHorizontal;
+        keyCoolDownRotate = Time.time + keyCoolDownRotate;
         gameBoard = GameObject.FindGameObjectWithTag("Board").GetComponent<Board>();
         spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>();
         scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
@@ -65,40 +84,45 @@ public class PanelController : MonoBehaviour
 
     void CheckInput()
     {
-        if (Input.GetKeyDown(KeyCode.D) && Time.time > keyCoolDown)
+
+        verticalInput = Input.GetAxisRaw("Vertical");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+
+
+        if (horizontalInput == 1 && Time.time > keyCoolDownHorizontal)
         {
             activeShape.MoveRight();
-            keyCoolDown = Time.time + keyRepeatRate;
+            keyCoolDownHorizontal = Time.time + keyRepeatRateHorizontal;
             if (!gameBoard.IsValidPosition(activeShape))
             {
                 activeShape.MoveLeft();
             }
            
         }
-        else if (Input.GetKey(KeyCode.A) && Time.time > keyCoolDown)
+        else if (horizontalInput == -1 && Time.time > keyCoolDownHorizontal)
         {
             activeShape.MoveLeft();
-            keyCoolDown = Time.time + keyRepeatRate;
+            keyCoolDownHorizontal = Time.time + keyRepeatRateHorizontal;
             if (!gameBoard.IsValidPosition(activeShape))
             {
                 activeShape.MoveRight();
             }
             
         }
-        else if (Input.GetKey(KeyCode.W) && Time.time > keyCoolDown)
+        else if (verticalInput == 1 && Time.time > keyCoolDownRotate)
         {
             activeShape.RotateRight();
-            keyCoolDown = Time.time + keyRepeatRate;
+            keyCoolDownRotate = Time.time + keyRepeatRateRotate;
             if (!gameBoard.IsValidPosition(activeShape))
             {
                 activeShape.RotateLeft();
             }
 
         }
-        else if(Input.GetKey(KeyCode.S) && Time.time > keyCoolDown || Time.time > timeToDrop)
+        else if(verticalInput == -1 && Time.time > keyCoolDownDown || Time.time > timeToDrop)
         {
             timeToDrop = Time.time + dropInterval;
-            keyCoolDown = Time.time + keyRepeatRate;
+            keyCoolDownDown = Time.time + keyRepeatRateDown;
             
             activeShape.MoveDown();
 
@@ -119,7 +143,9 @@ public class PanelController : MonoBehaviour
 
     void StopShapeLanded()
     {
-        keyCoolDown = Time.time;
+        keyCoolDownDown = Time.time ;
+        keyCoolDownHorizontal = Time.time ;
+        keyCoolDownRotate = Time.time;
         activeShape.MoveUp();
 
         gameBoard.SetPositionShapeInGrid(activeShape);

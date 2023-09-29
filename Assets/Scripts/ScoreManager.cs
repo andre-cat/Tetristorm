@@ -10,11 +10,13 @@ public class ScoreManager : MonoBehaviour
     int level = 1;
 
     public int linesPerLevel = 5;
+    public float fadeTimer = 0.2f;
 
     const int MIN_LINES = 1;
     const int MAX_LINES = 5;
 
     public TextMeshProUGUI hopePoints;
+    public TextMeshProUGUI textMultiplier;
     void Start()
     {
         Reset();
@@ -38,11 +40,14 @@ public class ScoreManager : MonoBehaviour
                     break;
             case 2:
                 score += 80 * level;
+                StartCoroutine("SetMultiplierMessage", "Yeah x2");
                 break;
             case 3:
                 score += 250 * level;
+                StartCoroutine("SetMultiplierMessage", "gross x3");
                 break;
             case 4:
+                StartCoroutine("SetMultiplierMessage", "Holly molly x4");
                 score += 600 * level;
                 break;
         }
@@ -62,6 +67,17 @@ public class ScoreManager : MonoBehaviour
         {
             hopePoints.text ="Hope Points: "+ score.ToString();
         }
+    }
+
+
+    IEnumerator SetMultiplierMessage(string text)
+    {
+        textMultiplier.text = text;
+        textMultiplier.gameObject.SetActive(true);
+        //textMultiplier.color = new Color(1, 1, 1, textMultiplier.color.a - (Time.deltaTime * fadeTimer));
+        yield return new WaitForSeconds(0.8f);
+        textMultiplier.gameObject.SetActive(false);        
+
     }
 
     
