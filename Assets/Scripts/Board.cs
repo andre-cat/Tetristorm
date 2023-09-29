@@ -14,6 +14,8 @@ public class Board : MonoBehaviour
 
     Transform[,] grid;
 
+    SFXManager sfxManager;
+
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class Board : MonoBehaviour
     {
         transform.position = new Vector3(-20.34f, -10.45f, 1.82f);
         DrawEmptyCell();
+        sfxManager = GameObject.Find("Canvas").GetComponent<SFXManager>();
     }
 
     bool IsWithinBoard(int x, int y)
@@ -162,6 +165,7 @@ public class Board : MonoBehaviour
         {
             if(grid[x,y] != null)
             {
+                sfxManager.SFXTetris();
                 Destroy(grid[x, y].gameObject);
             }
             grid[x, y] = null;

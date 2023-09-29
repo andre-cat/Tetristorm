@@ -14,6 +14,7 @@ public class VolumeSlider : MonoBehaviour
     void Start()
     {
         slider.value = AudioManager.Volume;
+        slider.value = SFXManager.Volume;
     }
 
     void Update()
@@ -24,5 +25,6 @@ public class VolumeSlider : MonoBehaviour
     private void SetVolume()
     {
         AudioManager.Volume = slider.value;
+        SFXManager.Volume = slider.value;
     }
 }
