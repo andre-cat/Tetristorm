@@ -13,6 +13,7 @@ public class Board : MonoBehaviour
     public int levelReached = 0;
 
     Transform[,] grid;
+    public int completedRows = 0;
 
 
     private void Awake()
@@ -55,11 +56,9 @@ public class Board : MonoBehaviour
         return true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckLevelBoard();
-
     }
 
     void DrawEmptyCell()
@@ -95,7 +94,8 @@ public class Board : MonoBehaviour
         {
             
             Vector2 pos = Vector2Int.RoundToInt(child.position);
-            grid[(int)pos.x, (int)pos.y] = child;
+            grid[(int)pos.x, (int)pos.y] = child;           
+
         }
     }
 
@@ -114,46 +114,35 @@ public class Board : MonoBehaviour
 
     public void CheckLevelBoard()
     {
-
+       
         for (int x = 0; x < width; ++x)
         {
-            if (grid[x, (int)height / 8] != null)
+            if (grid[x, (int)height / 2] == null && grid[x, (int)height / 8] == null && grid[x, (int)height / 4] == null && grid[x, height - header] == null)
+            {
+                levelReached = 0;
+            }
+
+                if (grid[x, (int)height / 8] != null && grid[x, (int)height / 4] == null)
             {
                 levelReached = 1;
-            }           
-            if (grid[x, height / 4] != null)
+                return;
+            }
+            if (grid[x, (int)height / 4] != null && grid[x, (int)height / 8] != null && grid[x, (int)height / 2] == null)
             {
                 levelReached = 2;
-            }            
-            if (grid[x, (int)height / 2] != null )
+                return;
+            }
+            if (grid[x, (int)height / 2] != null && grid[x, (int)height / 8] != null && grid[x, (int)height / 4] != null && grid[x, height - (header+ 1)] == null)
             {
                 levelReached = 3;
-            }           
-            if (grid[x, (int)height-header] != null)
+                return;
+            }
+            if (grid[x, height - (header + 1)] != null && grid[x, (int)height / 2] != null )
             {
                 levelReached = 4;
+                return;
             }            
         }
-        //if (grid[(int)1, (int)height / 8] != null)
-        //{
-        //    levelReached = 1; 
-        //}
-
-        //if (grid[(int)1, (int)height / 4] != null)
-        //{
-        //    levelReached = 2;
-        //}
-
-        //if (grid[(int)1, (int)height / 2] != null)
-        //{
-        //    levelReached = 3;
-        //}
-
-        //if (grid[(int)1, (int)height-1] != null)
-        //{
-        //    levelReached = 4;
-        //}
-
     }
 
     void ClearRow(int y)
@@ -192,14 +181,29 @@ public class Board : MonoBehaviour
 
     public void ClearAllRows()
     {
-        for(int y=0; y < height; ++y)
+        completedRows = 0;
+
+        for (int y=0; y < height; ++y)
         {
             if (IsRowComplete(y))
             {
+                completedRows++;
                 ClearRow(y);
                 MoveRowsDown(y + 1);
                 y--;
             }
         }
+    }
+
+    public bool IsInLimit(Shape shape)
+    {
+        foreach(Transform child in shape.transform)
+        {
+            if(child.transform.position.y >= (height - header - 1))
+            {
+                return true;
+            }
+        }
+        return  false;
     }
 }
