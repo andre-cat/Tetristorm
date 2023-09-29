@@ -400,8 +400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cddf57f9f55afa84796905fef6b41cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuClip_: {fileID: 8300000, guid: 2498a47c963b4fb45b9558a4043e6df5, type: 3}
-  levelClip_: {fileID: 8300000, guid: 50e742b401bf0f144b934a8556fa8b17, type: 3}
+  menuClip_: {fileID: 8300000, guid: 19fa74988a7e8bb4a8f5a1450479e9f9, type: 3}
+  levelClip_: {fileID: 8300000, guid: e8608cd32adacfe40b16ed42f33cd5df, type: 3}
   winClip_: {fileID: 8300000, guid: 2e0e79a9517a8e1459b4564eb1faac51, type: 3}
   gameManager: {fileID: 0}
 --- !u!82 &255480300
