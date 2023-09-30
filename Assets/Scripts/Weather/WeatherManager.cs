@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class WeatherManager : MonoBehaviour
 {
-    //[SerializeField] private Momentum momentum;
+    [Header("COMPONENTS")]
     [SerializeField] private Board board;
     [SerializeField] private Weather weather;
+
+    [Header("OTHER")]
+    [SerializeField] private bool changeByMomentum = false;
+    [SerializeField] private Momentum momentum;
 
     private int currentLevel;
 
@@ -17,8 +21,14 @@ public class WeatherManager : MonoBehaviour
 
     private void Update()
     {
-        SetWeatherByScore();
-        //ChangeWeatherTest();
+        if (changeByMomentum)
+        {
+            SetWeatherByMomentum();
+        }
+        else
+        {
+            SetWeatherByScore();
+        }
     }
 
     public void SetWeatherByScore()
@@ -48,14 +58,12 @@ public class WeatherManager : MonoBehaviour
         }
     }
 
-    /*
-    public void ChangeWeatherTest()
+    public void SetWeatherByMomentum()
     {
-        if (momentum != weatherManager.Momentum)
+        if (momentum != weather.Momentum)
         {
-            weatherManager.Momentum = momentum;
-            momentum = weatherManager.Momentum;
+            weather.Momentum = momentum;
+            momentum = weather.Momentum;
         }
     }
-    */
 }
