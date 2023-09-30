@@ -1140,19 +1140,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8060558920657522819, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
+      propertyPath: board
+      value: 
+      objectReference: {fileID: 998783636}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 149045716537102199, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 2026470489}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
---- !u!1 &1951218862 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 149045716537102199, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
-  m_PrefabInstance: {fileID: 1951218861}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1967105622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,7 +1230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2011467038}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: POV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1322,7 +1318,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 63
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1388,26 +1384,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3336699047182476243, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
   m_PrefabInstance: {fileID: 1951218861}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951218862}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b56cea6747f7c9439ed6e059e6462c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2026470489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951218862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865c67e95a7745540a871f6936532932, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  board: {fileID: 998783636}
-  weather: {fileID: 2026470488}
 --- !u!1001 &2068244910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1517,9 +1499,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3832545230091760190, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225514542837195113, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749350251131432540, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027392896538489883, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8139057485583527811, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
       propertyPath: m_LocalScale.y
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192480788470291725, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8937641753997051330, guid: 832e959b7dc6c1442bd7b730f08523f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1726,7 +1728,7 @@ GameObject:
   - component: {fileID: 3908562056338156339}
   - component: {fileID: 8305206973225225429}
   - component: {fileID: 8305206973225225428}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
