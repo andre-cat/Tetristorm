@@ -42,10 +42,10 @@ public class GameManager : MonoBehaviour
     public IEnumerator ChangeScene()
     {
         crossFadeAnim.SetBool("SceneCompleted", true);
-        yield return new WaitForSeconds(crossfadeAnimClip.length+1f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
-        SceneManager.LoadScene(sceneNumber+1);
+        yield return new WaitForSeconds(crossfadeAnimClip.length + 1f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
+        SceneManager.LoadScene(sceneNumber + 1);
 
-    }   
+    }
 
     public void Wrapper()
     {
@@ -54,17 +54,20 @@ public class GameManager : MonoBehaviour
 
     public void ChangeMusicForScene()
     {
-        if (sceneNumber == 0)
+        if (audioManager != null)
         {
-            audioManager.PlayMenuMusic();
-        }
-        if (sceneNumber == 1)
-        {
-            audioManager.PlayLevelMusic();
-        }
-        if (sceneNumber == -1)
-        {
-            audioManager.PlayGameOverMusic();
+            if (sceneNumber == 0)
+            {
+                audioManager.PlayMenuMusic();
+            }
+            if (sceneNumber == 1)
+            {
+                audioManager.PlayLevelMusic();
+            }
+            if (sceneNumber == -1)
+            {
+                audioManager.PlayGameOverMusic();
+            }
         }
     }
 
