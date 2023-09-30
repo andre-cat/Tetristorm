@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 1c2160f711655814186f0ae7c9ec32c1, type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 0906fb10e565c6e4790ec53b7e499c08, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -170,6 +170,10 @@ MonoBehaviour:
   crossFadeAnim: {fileID: 1061236297}
   crossfadeAnimClip: {fileID: 7400000, guid: e74d2f3e8b3fdc54486f8f7525cb1e62, type: 2}
   sceneNumber: -1
+  isPaused: 0
+  pausePanel: {fileID: 0}
+  board: {fileID: 0}
+  weatherManager: {fileID: 0}
 --- !u!1 &517964330
 GameObject:
   m_ObjectHideFlags: 0

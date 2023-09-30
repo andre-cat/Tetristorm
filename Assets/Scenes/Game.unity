@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5886402, g: 0.81543225, b: 1.0522676, a: 1}
+  m_IndirectSpecularColor: {r: 0.5922767, g: 0.8696231, b: 1.0949003, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -685,7 +685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1143,8 +1143,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 149045716537102199, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 2026470489}
   m_SourcePrefab: {fileID: 100100000, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
+--- !u!1 &1951218862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 149045716537102199, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
+  m_PrefabInstance: {fileID: 1951218861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1967105622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,12 +1388,26 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3336699047182476243, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
   m_PrefabInstance: {fileID: 1951218861}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1951218862}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b56cea6747f7c9439ed6e059e6462c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2026470489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951218862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865c67e95a7745540a871f6936532932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board: {fileID: 998783636}
+  weather: {fileID: 2026470488}
 --- !u!1001 &2068244910
 PrefabInstance:
   m_ObjectHideFlags: 0

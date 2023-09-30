@@ -1,61 +1,108 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-[Serializable]
-[CreateAssetMenu(fileName = "Weather", menuName = "Scriptables/Weather", order = 1)]
-public class Weather : ScriptableObject
+public class Weather : MonoBehaviour
 {
-    [SerializeField] private Momentum momentum;
-    [SerializeField][Range(0, 8)] private float skyboxExposure;
-    [SerializeField] private Color skyboxTint;
-    [SerializeField][Range(0, 8)] private float lightIntensity;
-    [SerializeField] private Color lightColor;
-    [SerializeField] private Color ambientLightColor;
-    [SerializeField][Range(0, 1)] private float ambientLightIntensity;
+    [Header("LIGHT")]
+    [SerializeField] private Light sunLight;
+
+    [Header("SKYBOX")]
+    [SerializeField] private Material skyMaterial;
+
+    [Header("WEATHER")]
+    [SerializeField] private Momentum firstMomentum;
+    [SerializeField] private WeatherState[] weathers = new WeatherState[WeatherState.Length];
+    [SerializeField][Min(0)] float weatherTransitionSeconds;
+
+    private Dictionary<Momentum, WeatherState> weathersDictionary;
+
+    private Momentum lastMomentum;
+
+    private UnityEvent onMomentumChange;
+
+    private bool isUpdating;
+
+    private void Start()
+    {
+        weathersDictionary = new Dictionary<Momentum, WeatherState>();
+
+        foreach (WeatherState weather in weathers)
+        {
+            weathersDictionary[weather.Momentum] = weather;
+        }
+
+        onMomentumChange = new UnityEvent();
+        onMomentumChange.AddListener(OnMomentumChanged);
+
+        lastMomentum = momentum = firstMomentum;
+        StartCoroutine(ChangeWeather(weathersDictionary, lastMomentum, momentum, weatherTransitionSeconds));
+    }
+
+    private void OnMomentumChanged()
+    {
+        if (isUpdating)
+        {
+            StopCoroutine(ChangeWeather(weathersDictionary, lastMomentum, momentum, weatherTransitionSeconds));
+        }
+        StartCoroutine(ChangeWeather(weathersDictionary, lastMomentum, momentum, weatherTransitionSeconds));
+    }
+
+    private IEnumerator ChangeWeather(Dictionary<Momentum, WeatherState> weathersDictionary, Momentum lastMomentum, Momentum nextMomentum, float seconds)
+    {
+        isUpdating = true;
+
+        WeatherState lastWeather = weathersDictionary[lastMomentum];
+        WeatherState nextWeather = weathersDictionary[nextMomentum];
+
+        float secondsElapsed = 0;
+
+        while (secondsElapsed < seconds)
+        {
+
+            float skyboxExposure = Mathf.Lerp(lastWeather.SkyboxExposure, nextWeather.SkyboxExposure, secondsElapsed / seconds);
+            skyMaterial.SetFloat("_Exposure", skyboxExposure);
+
+            Color skyboxTint = Color.Lerp(lastWeather.SkyboxTint, nextWeather.SkyboxTint, secondsElapsed / seconds);
+            skyMaterial.SetColor("_Tint", skyboxTint);
+
+            float lightIntensity = Mathf.Lerp(lastWeather.LightIntensity, nextWeather.LightIntensity, secondsElapsed / seconds);
+            sunLight.intensity = lightIntensity;
+
+            Color lightColor = Color.Lerp(lastWeather.LightColor, nextWeather.LightColor, secondsElapsed / seconds);
+            sunLight.color = lightColor;
+
+            Color ambientColor = Color.Lerp(lastWeather.AmbientLightColor, nextWeather.AmbientLightColor, secondsElapsed / seconds);
+            RenderSettings.ambientLight = ambientColor;
+
+            float ambientLightIntensity = Mathf.Lerp(lastWeather.AmbientLightIntensity, nextWeather.AmbientLightIntensity, secondsElapsed / seconds);
+            RenderSettings.ambientIntensity = ambientLightIntensity;
+
+            secondsElapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        skyMaterial.SetFloat("_Exposure", nextWeather.SkyboxExposure);
+        skyMaterial.SetColor("_Tint", nextWeather.SkyboxTint);
+        sunLight.intensity = nextWeather.LightIntensity;
+        sunLight.color = nextWeather.LightColor;
+
+        isUpdating = false;
+    }
+
+    private Momentum momentum;
 
     public Momentum Momentum
     {
-        get => momentum;
-        set => momentum = value;
+        get { return momentum; }
+        set
+        {
+            lastMomentum = momentum;
+            momentum = value;
+            onMomentumChange.Invoke();
+        }
     }
 
-    public float SkyboxExposure
-    {
-        get => skyboxExposure;
-        set => skyboxExposure = value;
-    }
-
-    public Color SkyboxTint
-    {
-        get => skyboxTint;
-        set => skyboxTint = value;
-    }
-
-    public float LightIntensity
-    {
-        get => lightIntensity;
-        set => lightIntensity = value;
-    }
-
-    public Color LightColor
-    {
-        get => lightColor;
-        set => lightColor = value;
-    }
-
-    public Color AmbientLightColor {
-        get => ambientLightColor;
-        set => ambientLightColor = value;
-    }
-
-    public float AmbientLightIntensity
-    {
-        get => ambientLightIntensity;
-        set => ambientLightIntensity = value;
-    }
-
-    public static int Length
-    {
-        get => Enum.GetValues(typeof(Momentum)).Length;
-    }
 }
