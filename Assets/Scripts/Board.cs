@@ -17,6 +17,8 @@ public class Board : MonoBehaviour
 
     SFXManager sfxManager;
 
+    public ParticleSquare rowFX;
+
 
     private void Awake()
     {
@@ -193,6 +195,7 @@ public class Board : MonoBehaviour
             {
                 completedRows++;
                 ClearRow(y);
+                ClearRowFX(y);
                 MoveRowsDown(y + 1);
                 y--;
             }
@@ -209,5 +212,14 @@ public class Board : MonoBehaviour
             }
         }
         return  false;
+    }
+
+    void ClearRowFX(int y)
+    {
+        if (rowFX)
+        {
+            rowFX.transform.position = new Vector3(0, y, 14);
+            rowFX.Play();
+        }
     }
 }
