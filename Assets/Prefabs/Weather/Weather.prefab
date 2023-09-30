@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4890638114712958346}
+  - component: {fileID: 8060558920657522819}
   - component: {fileID: 3336699047182476243}
   m_Layer: 0
   m_Name: Weather
@@ -35,6 +36,20 @@ Transform:
   - {fileID: 3442674673920265186}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8060558920657522819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149045716537102199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865c67e95a7745540a871f6936532932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board: {fileID: 0}
+  weather: {fileID: 3336699047182476243}
 --- !u!114 &3336699047182476243
 MonoBehaviour:
   m_ObjectHideFlags: 0
