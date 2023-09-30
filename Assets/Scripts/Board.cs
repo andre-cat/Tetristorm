@@ -19,6 +19,14 @@ public class Board : MonoBehaviour
 
     public ParticleSquare[] rowFX = new ParticleSquare[4];
 
+    bool isLevel3 = false;
+    bool isLevel2 = false;
+    bool isLevel1 = false;
+
+    int counterRowLvl3 = 0;
+    int counterRowLvl2 = 0;
+    int counterRowLvl1 = 0;
+
 
     private void Awake()
     {
@@ -61,9 +69,12 @@ public class Board : MonoBehaviour
         return true;
     }
 
-    void Update()
+    
+    
+    void FixedUpdate()
     {
         CheckLevelBoard();
+
     }
 
     void DrawEmptyCell()
@@ -117,36 +128,105 @@ public class Board : MonoBehaviour
     }
 
 
+    //public void CheckLevelBoard()
+    //{
+
+    //    if (levelReached < 4)
+    //    {
+
+
+    //        for (int x = 0; x < width; ++x)
+    //        {
+    //            if (grid[x, (int)height / 2] == null && grid[x, (int)height / 8] == null && grid[x, (int)height / 4] == null && grid[x, height - header] == null)
+    //            {
+    //                levelReached = 0;
+    //            }
+
+    //            if (grid[x, (int)height / 8] != null && grid[x, (int)height / 4] == null)
+    //            {
+    //                levelReached = 1;
+    //                return;
+    //            }
+    //            if (grid[x, (int)height / 4] != null && grid[x, (int)height / 8] != null && grid[x, (int)height / 2] == null)
+    //            {
+    //                levelReached = 2;
+    //                return;
+    //            }
+    //            if (grid[x, (int)height / 2] != null && grid[x, (int)height / 8] != null && grid[x, (int)height / 4] != null && grid[x, height - (header + 1)] == null)
+    //            {
+    //                levelReached = 3;
+    //                return;
+    //            }
+    //        }
+    //    }
+    //}
+
+    
     public void CheckLevelBoard()
     {
-       
-        for (int x = 0; x < width; ++x)
-        {
-            if (grid[x, (int)height / 2] == null && grid[x, (int)height / 8] == null && grid[x, (int)height / 4] == null && grid[x, height - header] == null)
-            {
-                levelReached = 0;
-            }
 
-                if (grid[x, (int)height / 8] != null && grid[x, (int)height / 4] == null)
+        if (levelReached < 4)
+        {
+
+
+            for (int x = 0; x < width; ++x)
             {
-                levelReached = 1;
-                return;
+                if(grid[x, 14] != null)
+                {
+                    levelReached = 3;
+                    counterRowLvl3 += 1;
+                }
+
+                if (grid[x, 10] != null && !isLevel3 )
+                {
+                    levelReached = 2;
+                    counterRowLvl2 += 1;
+                }
+
+                if (grid[x, 3] != null && !isLevel2 && !isLevel3)
+                {
+                    levelReached = 1;
+                    counterRowLvl1 += 1;
+                }
+
+                if(!isLevel3 && !isLevel2 && !isLevel1)
+                {
+                    levelReached = 0;
+                }
+
+                if (x == width - 1)
+                {
+                    if(counterRowLvl3 > 0)
+                    {
+                        isLevel3 = true;
+                    }
+                    else
+                    {
+                        isLevel3 = false;
+                    }
+                    if (counterRowLvl2 > 0)
+                    {
+                        isLevel2 = true;
+                    }
+                    else
+                    {
+                        isLevel2 = false;
+                    }
+                    if (counterRowLvl1 > 0)
+                    {
+                        isLevel1 = true;
+                    }
+                    else
+                    {
+                        isLevel1 = false;
+                    }
+                    counterRowLvl3 = 0;
+                    counterRowLvl2 = 0;
+                    counterRowLvl1 = 0;
+                }
+
             }
-            if (grid[x, (int)height / 4] != null && grid[x, (int)height / 8] != null && grid[x, (int)height / 2] == null)
-            {
-                levelReached = 2;
-                return;
-            }
-            if (grid[x, (int)height / 2] != null && grid[x, (int)height / 8] != null && grid[x, (int)height / 4] != null && grid[x, height - (header+ 1)] == null)
-            {
-                levelReached = 3;
-                return;
-            }
-            if (grid[x, height - (header + 1)] != null && grid[x, (int)height / 2] != null )
-            {
-                levelReached = 4;
-                return;
-            }            
+            
         }
     }
 
@@ -217,6 +297,7 @@ public class Board : MonoBehaviour
         {
             if(child.transform.position.y >= (height - header - 1))
             {
+                levelReached = 4;
                 return true;
             }
         }
