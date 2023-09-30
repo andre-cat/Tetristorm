@@ -9,18 +9,20 @@ public class GameManager : MonoBehaviour
     public AnimationClip crossfadeAnimClip;
     public int sceneNumber;
     AudioManager audioManager;
+
+    public bool isPaused = false;
+    public GameObject pausePanel;
+
     // Start is called before the first frame update
-    //[SerializeField] private Momentum momentum;
-    [SerializeField] private Board board;
-    [SerializeField] private WeatherManager weatherManager;
-
-    private int currentLevel;
-
     void Start()
     {
         crossFadeAnim = GameObject.Find("PanelForCrossfade").GetComponent<Animator>();
         audioManager = FindObjectOfType<AudioManager>();
-        currentLevel = 0;
+
+        if (pausePanel)
+        {
+            pausePanel.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -32,8 +34,9 @@ public class GameManager : MonoBehaviour
         }
 
         ChangeMusicForScene();
-        ChangeWeather();
-        //ChangeWeatherTest();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            TogglePausePanel();
     }
 
     public IEnumerator ChangeScene()
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour
         crossFadeAnim.SetBool("SceneCompleted", true);
         yield return new WaitForSeconds(crossfadeAnimClip.length + 1f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
         SceneManager.LoadScene(sceneNumber + 1);
+
     }
 
     public void Wrapper()
@@ -67,45 +71,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangeWeather()
+    public void TogglePausePanel()
     {
-        if (currentLevel != board.levelReached)
+        isPaused = !isPaused;
+        if (pausePanel)
         {
-            switch (board.levelReached)
-            {
-                case 0:
-                    Debug.Log("0");
-                    weatherManager.Momentum = Momentum.Sunny;
-                    break;
-                case 1:
-                    Debug.Log("1");
-                    weatherManager.Momentum = Momentum.Cloudy;
-                    break;
-                case 2:
-                    Debug.Log("2");
-                    weatherManager.Momentum = Momentum.Rainy;
-                    break;
-                case 3:
-                    Debug.Log("3");
-                    weatherManager.Momentum = Momentum.Stormy;
-                    break;
-                case 4:
-                    Debug.Log("4");
-                    Debug.Log("GameOver");
-                    break;
-            }
-            currentLevel = board.levelReached;
+            pausePanel.SetActive(isPaused);
+            Time.timeScale = isPaused ? 0 : 1;
         }
     }
 
-    /*
-    public void ChangeWeatherTest()
+    public void GoToMainMenu()
     {
-        if (momentum != weatherManager.Momentum)
-        {
-            weatherManager.Momentum = momentum;
-            momentum = weatherManager.Momentum;
-        }
+        StartCoroutine("MainMenu");
     }
-    */
+
+    public IEnumerator MainMenu()
+    {
+        crossFadeAnim.SetBool("SceneCompleted", true);
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(crossfadeAnimClip.length + 0.5f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
+        SceneManager.LoadScene(0);
+
+    }
+
 }
