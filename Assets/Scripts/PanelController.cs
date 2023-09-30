@@ -171,7 +171,6 @@ public class PanelController : MonoBehaviour
     void GameOver()
     {
         activeShape.MoveUp();
-        Debug.Log("Limit reached");
         gameOver = true;
     }
 }
