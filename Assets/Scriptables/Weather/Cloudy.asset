@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7f30e127b022d14a8c46083f69ed0da, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bd0690e9649c8148bad9c6b410f7c5d, type: 3}
   m_Name: Cloudy
   m_EditorClassIdentifier: 
   momentum: 1
-  skyboxExposure: 1.2
-  skyboxTint: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
-  lightIntensity: 0.5
-  lightColor: {r: 0.29352084, g: 0.40951708, b: 0.6415094, a: 1}
-  ambientLightColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
-  ambientLightIntensity: 0.66
+  material: {fileID: 2100000, guid: 5c57bb9da366e944a8f4ae9be4f413ec, type: 2}
+  lightIntensity: 0.75
+  lightColor: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
+  ambientLightIntensity: 0.75
+  ambientLightColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}

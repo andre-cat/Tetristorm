@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4890638114712958346}
-  - component: {fileID: 8060558920657522819}
-  - component: {fileID: 3336699047182476243}
+  - component: {fileID: 8047685596468587563}
+  - component: {fileID: 3432767233132259882}
   m_Layer: 0
   m_Name: Weather
   m_TagString: Untagged
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 3442674673920265186}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8060558920657522819
+--- !u!114 &8047685596468587563
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,12 +45,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 149045716537102199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865c67e95a7745540a871f6936532932, type: 3}
+  m_Script: {fileID: 11500000, guid: 32a15e3c4e2f1a845a11c1653dfc55b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 0}
-  weather: {fileID: 3336699047182476243}
---- !u!114 &3336699047182476243
+  weather: {fileID: 3432767233132259882}
+  changeByMomentum: 1
+  momentum: 0
+--- !u!114 &3432767233132259882
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,18 +61,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 149045716537102199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b56cea6747f7c9439ed6e059e6462c7, type: 3}
+  m_Script: {fileID: 11500000, guid: a82a3e0493d11a84abcea322081d9865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sunLight: {fileID: 0}
-  skyMaterial: {fileID: 2100000, guid: 3b98a7cec891026448dc058527434a31, type: 2}
+  skyMaterial: {fileID: 2100000, guid: b74d81355a55e4644bac74392ea07934, type: 2}
   firstMomentum: 0
   weathers:
   - {fileID: 11400000, guid: c8d3ed246ba9e764aa642e52d6829600, type: 2}
   - {fileID: 11400000, guid: 3d43ee4563c4bbb499114830508d2689, type: 2}
   - {fileID: 11400000, guid: 9ab019391fcacf34cb41efdeb8bef74c, type: 2}
   - {fileID: 11400000, guid: e3de46e4a11838b40877718e8493446e, type: 2}
-  weatherTransitionSeconds: 2
+  weatherTransitionSeconds: 5
 --- !u!1 &5587615212452073416
 GameObject:
   m_ObjectHideFlags: 0

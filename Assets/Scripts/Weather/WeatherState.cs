@@ -6,12 +6,11 @@ using UnityEngine;
 public class WeatherState : ScriptableObject
 {
     [SerializeField] private Momentum momentum;
-    [SerializeField][Range(0, 8)] private float skyboxExposure;
-    [SerializeField] private Color skyboxTint;
-    [SerializeField][Range(0, 8)] private float lightIntensity;
+    [SerializeField] private Material material;
+    [SerializeField][Range(0, 1)] private float lightIntensity;
     [SerializeField] private Color lightColor;
-    [SerializeField] private Color ambientLightColor;
     [SerializeField][Range(0, 1)] private float ambientLightIntensity;
+    [SerializeField] private Color ambientLightColor;
 
     public Momentum Momentum
     {
@@ -19,16 +18,10 @@ public class WeatherState : ScriptableObject
         set => momentum = value;
     }
 
-    public float SkyboxExposure
+    public Material Material
     {
-        get => skyboxExposure;
-        set => skyboxExposure = value;
-    }
-
-    public Color SkyboxTint
-    {
-        get => skyboxTint;
-        set => skyboxTint = value;
+        get => material;
+        set => material = value;
     }
 
     public float LightIntensity
@@ -43,19 +36,16 @@ public class WeatherState : ScriptableObject
         set => lightColor = value;
     }
 
-    public Color AmbientLightColor {
-        get => ambientLightColor;
-        set => ambientLightColor = value;
-    }
-
     public float AmbientLightIntensity
     {
         get => ambientLightIntensity;
         set => ambientLightIntensity = value;
     }
 
-    public static int Length
+    public Color AmbientLightColor
     {
-        get => Enum.GetValues(typeof(Momentum)).Length;
+        get => ambientLightColor;
+        set => ambientLightColor = value;
     }
+
 }

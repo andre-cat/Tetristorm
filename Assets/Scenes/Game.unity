@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 3b98a7cec891026448dc058527434a31, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b74d81355a55e4644bac74392ea07934, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 1020987251}
   - component: {fileID: 1020987250}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Sun Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1100,6 +1100,10 @@ PrefabInstance:
       propertyPath: sunLight
       value: 
       objectReference: {fileID: 1020987250}
+    - target: {fileID: 3432767233132259882, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
+      propertyPath: sunLight
+      value: 
+      objectReference: {fileID: 1020987250}
     - target: {fileID: 4890638114712958346, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1139,6 +1143,14 @@ PrefabInstance:
     - target: {fileID: 4890638114712958346, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047685596468587563, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
+      propertyPath: board
+      value: 
+      objectReference: {fileID: 998783636}
+    - target: {fileID: 8047685596468587563, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
+      propertyPath: changeByWeather
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8060558920657522819, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
       propertyPath: board
@@ -1379,17 +1391,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2026470488 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3336699047182476243, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
-  m_PrefabInstance: {fileID: 1951218861}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b56cea6747f7c9439ed6e059e6462c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2068244910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1640,7 +1641,7 @@ PrefabInstance:
     - target: {fileID: 887705440156352447, guid: b2f6ba79cc54f0b4086fac770984f7f0, type: 3}
       propertyPath: weatherManager
       value: 
-      objectReference: {fileID: 2026470488}
+      objectReference: {fileID: 0}
     - target: {fileID: 6216203648614617695, guid: b2f6ba79cc54f0b4086fac770984f7f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.306381
