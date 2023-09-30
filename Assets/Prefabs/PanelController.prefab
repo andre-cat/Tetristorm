@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ffef9458a8a15143a1accdd1846154e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropInterval: 0.7
-  keyRepeatRate: 0.25
+  dropInterval: 0.9
+  keyRepeatRateHorizontal: 0.15
+  keyRepeatRateDown: 0.04
+  keyRepeatRateRotate: 0.2

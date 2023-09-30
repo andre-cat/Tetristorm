@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crossFadeAnim: {fileID: 0}
-  crossfadeAnimClip: {fileID: 0}
+  crossfadeAnimClip: {fileID: 7400000, guid: e74d2f3e8b3fdc54486f8f7525cb1e62, type: 2}
+  sceneNumber: 1
+  isPaused: 0
+  pausePanel: {fileID: 0}
