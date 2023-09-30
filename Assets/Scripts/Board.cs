@@ -17,7 +17,7 @@ public class Board : MonoBehaviour
 
     SFXManager sfxManager;
 
-    public ParticleSquare rowFX;
+    public ParticleSquare[] rowFX = new ParticleSquare[4];
 
 
     private void Awake()
@@ -185,18 +185,27 @@ public class Board : MonoBehaviour
         }
     }
 
-    public void ClearAllRows()
+    public IEnumerator ClearAllRows()
     {
         completedRows = 0;
+
+        for(int y=0; y < height; ++y)
+        {
+            if (IsRowComplete(y))
+            {
+                ClearRowFX(completedRows, y);
+                completedRows++;
+            }
+        }
+        yield return new WaitForSeconds(0.5f);
 
         for (int y=0; y < height; ++y)
         {
             if (IsRowComplete(y))
             {
-                completedRows++;
                 ClearRow(y);
-                ClearRowFX(y);
                 MoveRowsDown(y + 1);
+                yield return new WaitForSeconds(0.3f);
                 y--;
             }
         }
@@ -214,12 +223,12 @@ public class Board : MonoBehaviour
         return  false;
     }
 
-    void ClearRowFX(int y)
+    void ClearRowFX(int index, int y)
     {
-        if (rowFX)
+        if (rowFX[index])
         {
-            rowFX.transform.position = new Vector3(0, y, 14);
-            rowFX.Play();
+            rowFX[index].transform.position = new Vector3(0, y, 14);
+            rowFX[index].Play();
         }
     }
 }

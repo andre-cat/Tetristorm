@@ -351,6 +351,8 @@ MonoBehaviour:
   crossFadeAnim: {fileID: 788133365}
   crossfadeAnimClip: {fileID: 7400000, guid: e74d2f3e8b3fdc54486f8f7525cb1e62, type: 2}
   sceneNumber: 0
+  isPaused: 0
+  pausePanel: {fileID: 0}
 --- !u!1 &255480297
 GameObject:
   m_ObjectHideFlags: 0
