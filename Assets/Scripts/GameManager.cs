@@ -9,20 +9,18 @@ public class GameManager : MonoBehaviour
     public AnimationClip crossfadeAnimClip;
     public int sceneNumber;
     AudioManager audioManager;
-
-    public bool isPaused = false;
-    public GameObject pausePanel;
-
     // Start is called before the first frame update
+    //[SerializeField] private Momentum momentum;
+    [SerializeField] private Board board;
+    [SerializeField] private WeatherManager weatherManager;
+
+    private int currentLevel;
+
     void Start()
     {
         crossFadeAnim = GameObject.Find("PanelForCrossfade").GetComponent<Animator>();
         audioManager = FindObjectOfType<AudioManager>();
-
-        if (pausePanel)
-        {
-            pausePanel.SetActive(false);
-        }
+        currentLevel = 0;
     }
 
     // Update is called once per frame
@@ -34,18 +32,16 @@ public class GameManager : MonoBehaviour
         }
 
         ChangeMusicForScene();
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-            TogglePausePanel();
+        ChangeWeather();
+        //ChangeWeatherTest();
     }
 
     public IEnumerator ChangeScene()
     {
         crossFadeAnim.SetBool("SceneCompleted", true);
-        yield return new WaitForSeconds(crossfadeAnimClip.length+1f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
-        SceneManager.LoadScene(sceneNumber+1);
-
-    }   
+        yield return new WaitForSeconds(crossfadeAnimClip.length + 1f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
+        SceneManager.LoadScene(sceneNumber + 1);
+    }
 
     public void Wrapper()
     {
@@ -54,42 +50,62 @@ public class GameManager : MonoBehaviour
 
     public void ChangeMusicForScene()
     {
-        if (sceneNumber == 0)
+        if (audioManager != null)
         {
-            audioManager.PlayMenuMusic();
-        }
-        if (sceneNumber == 1)
-        {
-            audioManager.PlayLevelMusic();
-        }
-        if (sceneNumber == -1)
-        {
-            audioManager.PlayGameOverMusic();
+            if (sceneNumber == 0)
+            {
+                audioManager.PlayMenuMusic();
+            }
+            if (sceneNumber == 1)
+            {
+                audioManager.PlayLevelMusic();
+            }
+            if (sceneNumber == -1)
+            {
+                audioManager.PlayGameOverMusic();
+            }
         }
     }
 
-    public void TogglePausePanel()
+    public void ChangeWeather()
     {
-        isPaused = !isPaused;
-        if (pausePanel)
+        if (currentLevel != board.levelReached)
         {
-            pausePanel.SetActive(isPaused);
-            Time.timeScale = isPaused ? 0 : 1;
+            switch (board.levelReached)
+            {
+                case 0:
+                    Debug.Log("0");
+                    weatherManager.Momentum = Momentum.Sunny;
+                    break;
+                case 1:
+                    Debug.Log("1");
+                    weatherManager.Momentum = Momentum.Cloudy;
+                    break;
+                case 2:
+                    Debug.Log("2");
+                    weatherManager.Momentum = Momentum.Rainy;
+                    break;
+                case 3:
+                    Debug.Log("3");
+                    weatherManager.Momentum = Momentum.Stormy;
+                    break;
+                case 4:
+                    Debug.Log("4");
+                    Debug.Log("GameOver");
+                    break;
+            }
+            currentLevel = board.levelReached;
         }
     }
 
-    public void GoToMainMenu()
+    /*
+    public void ChangeWeatherTest()
     {
-        StartCoroutine("MainMenu");
+        if (momentum != weatherManager.Momentum)
+        {
+            weatherManager.Momentum = momentum;
+            momentum = weatherManager.Momentum;
+        }
     }
-
-    public IEnumerator MainMenu()
-    {
-        crossFadeAnim.SetBool("SceneCompleted", true);
-        Time.timeScale = 1;
-        yield return new WaitForSeconds(crossfadeAnimClip.length + 0.5f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
-        SceneManager.LoadScene(0);
-
-    }
-
+    */
 }
