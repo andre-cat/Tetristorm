@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RotatePropeller : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private float speedRotation = 150.0f;
     void Update()
     {
