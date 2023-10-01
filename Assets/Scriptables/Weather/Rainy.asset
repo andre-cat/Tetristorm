@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd0690e9649c8148bad9c6b410f7c5d, type: 3}
+  m_Name: Rainy
+  m_EditorClassIdentifier: 
+  momentum: 3
+  material: {fileID: 2100000, guid: 900909ce45a1aaf40a6ed25e6a631a93, type: 2}
+  lightIntensity: 0.5
+  lightColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
+  ambientLightIntensity: 0.5
+  ambientLightColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
