@@ -40,8 +40,8 @@ public class Cinematic : MonoBehaviour
                 dutyScene.SetActive(true);
                 break;
             case 3:
-                hopeScene.SetActive(true);
                 StartCoroutine(ChangeStyledMaterial(hopelessMaterial, hopeMaterial, 5));
+                hopeScene.SetActive(true);
                 break;
         }
     }

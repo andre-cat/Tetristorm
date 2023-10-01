@@ -16,7 +16,8 @@ public class WeatherElements : MonoBehaviour
     [SerializeField] private ParticleSystem rain;
 
     [Header("-- Storm")]
-    [SerializeField] private ParticleSystem storms;
+    [SerializeField] private ParticleSystem storms1;
+    [SerializeField] private ParticleSystem storms2;
 
     private void FixedUpdate()
     {
@@ -58,11 +59,28 @@ public class WeatherElements : MonoBehaviour
 
         if ((int)weather.Momentum < (int)Momentum.Stormy)
         {
-            storms.gameObject.SetActive(false);
+            if (storms1.gameObject.activeSelf)
+            {
+                storms1.gameObject.SetActive(false);
+            }
+
+            if (storms2.gameObject.activeSelf)
+            {
+                storms2.gameObject.SetActive(false);
+            }
+
         }
         else
         {
-            storms.gameObject.SetActive(true);
+            if (!storms1.gameObject.activeSelf)
+            {
+                storms1.gameObject.SetActive(true);
+            }
+
+            if (!storms2.gameObject.activeSelf)
+            {
+                storms2.gameObject.SetActive(true);
+            }
         }
     }
 }
