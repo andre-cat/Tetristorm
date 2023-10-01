@@ -11,7 +11,7 @@ public class WeatherState : ScriptableObject
     [SerializeField] private Color lightColor;
     [SerializeField][Range(0, 1)] private float ambientLightIntensity;
     [SerializeField] private Color ambientLightColor;
-
+    
     public Momentum Momentum
     {
         get => momentum;

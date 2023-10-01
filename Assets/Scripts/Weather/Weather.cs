@@ -14,8 +14,8 @@ public class Weather : MonoBehaviour
 
     [Header("WEATHER")]
     [SerializeField] private Momentum firstMomentum;
-    [SerializeField] private WeatherState[] weathers = new WeatherState[Enum.GetValues(typeof(Momentum)).Length];
-    [SerializeField][Min(0)] float weatherTransitionSeconds;
+    [SerializeField] private WeatherState[] weathers = new WeatherState[States];
+    [SerializeField][Min(0)] float transitionSeconds;
 
     private Dictionary<Momentum, WeatherState> weathersDictionary;
 
@@ -38,16 +38,16 @@ public class Weather : MonoBehaviour
         onMomentumChange.AddListener(OnMomentumChanged);
 
         lastMomentum = momentum = firstMomentum;
-        StartCoroutine(ChangeWeather(weathersDictionary, lastMomentum, momentum, weatherTransitionSeconds));
+        StartCoroutine(ChangeWeather(weathersDictionary, lastMomentum, momentum, transitionSeconds));
     }
 
     private void OnMomentumChanged()
     {
         if (isUpdating)
         {
-            StopCoroutine(ChangeWeather(weathersDictionary, lastMomentum, momentum, weatherTransitionSeconds));
+            StopCoroutine(ChangeWeather(weathersDictionary, lastMomentum, momentum, transitionSeconds));
         }
-        StartCoroutine(ChangeWeather(weathersDictionary, lastMomentum, momentum, weatherTransitionSeconds));
+        StartCoroutine(ChangeWeather(weathersDictionary, lastMomentum, momentum, transitionSeconds));
     }
 
     private IEnumerator ChangeWeather(Dictionary<Momentum, WeatherState> weathersDictionary, Momentum lastMomentum, Momentum nextMomentum, float seconds)
@@ -156,6 +156,16 @@ public class Weather : MonoBehaviour
             momentum = value;
             onMomentumChange.Invoke();
         }
+    }
+
+    public float TransitionSeconds
+    {
+        get => transitionSeconds;
+    }
+
+    public static int States
+    {
+        get => Enum.GetValues(typeof(Momentum)).Length;
     }
 
 }

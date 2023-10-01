@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd0690e9649c8148bad9c6b410f7c5d, type: 3}
   m_Name: Rainy
   m_EditorClassIdentifier: 
-  momentum: 2
+  momentum: 3
   material: {fileID: 2100000, guid: 900909ce45a1aaf40a6ed25e6a631a93, type: 2}
   lightIntensity: 0.5
   lightColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
