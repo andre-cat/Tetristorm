@@ -143,28 +143,34 @@ public class PanelController : MonoBehaviour
 
     void StopShapeLanded()
     {
-        keyCoolDownDown = Time.time ;
-        keyCoolDownHorizontal = Time.time ;
-        keyCoolDownRotate = Time.time;
-        activeShape.MoveUp();
-
-        gameBoard.SetPositionShapeInGrid(activeShape);
-        activeShape = spawner.SpawnShape();
-
-        gameBoard.ClearAllRows();
-
-        if(gameBoard.completedRows > 0)
+        if (activeShape)
         {
-            //Add sound effect
 
-            scoreManager.ScoreMultiplier(gameBoard.completedRows);
+            activeShape.ShapeLandedFX();
+
+
+            keyCoolDownDown = Time.time;
+            keyCoolDownHorizontal = Time.time;
+            keyCoolDownRotate = Time.time;
+            activeShape.MoveUp();
+
+            gameBoard.SetPositionShapeInGrid(activeShape);
+            activeShape = spawner.SpawnShape();
+
+            gameBoard.StartCoroutine("ClearAllRows");
+
+            if (gameBoard.completedRows > 0)
+            {
+                //Add sound effect
+
+                scoreManager.ScoreMultiplier(gameBoard.completedRows);
+            }
         }
     }
 
     void GameOver()
     {
         activeShape.MoveUp();
-        Debug.Log("Limit reached");
         gameOver = true;
     }
 }
