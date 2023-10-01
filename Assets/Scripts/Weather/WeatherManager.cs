@@ -5,12 +5,11 @@ using UnityEngine;
 public class WeatherManager : MonoBehaviour
 {
     [Header("COMPONENTS")]
-    [SerializeField] private Board board;
     [SerializeField] private Weather weather;
 
-    [Header("OTHER")]
+    [Header("WEATHER CHANGE")]
     [SerializeField] private bool changeByMomentum = false;
-    [SerializeField] private Momentum momentum;
+    [SerializeField] private Momentum momentum = Momentum.Sunny;
 
     private int currentLevel;
 
@@ -33,10 +32,11 @@ public class WeatherManager : MonoBehaviour
 
     public void SetWeatherByScore()
     {
-        if (currentLevel != board.levelReached)
+        if (currentLevel != Board.levelReached)
         {
-            Debug.Log(board.levelReached);
-            switch (board.levelReached)
+            currentLevel = Board.levelReached;
+            Debug.Log(Board.levelReached);
+            switch (Board.levelReached)
             {
                 case 0:
                     weather.Momentum = Momentum.Sunny;
@@ -51,10 +51,10 @@ public class WeatherManager : MonoBehaviour
                     weather.Momentum = Momentum.Stormy;
                     break;
                 case 4:
-                    Debug.Log("GameOver");
+                    GameManager.gameOver = true;
+                    Debug.Log("GAME OVER");
                     break;
             }
-            currentLevel = board.levelReached;
         }
     }
 

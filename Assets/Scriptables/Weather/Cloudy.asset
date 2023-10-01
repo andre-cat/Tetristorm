@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd0690e9649c8148bad9c6b410f7c5d, type: 3}
   m_Name: Cloudy
   m_EditorClassIdentifier: 
-  momentum: 1
+  momentum: 2
   material: {fileID: 2100000, guid: 5c57bb9da366e944a8f4ae9be4f413ec, type: 2}
   lightIntensity: 0.75
   lightColor: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
