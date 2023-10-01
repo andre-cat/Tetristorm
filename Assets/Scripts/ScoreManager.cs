@@ -9,6 +9,9 @@ public class ScoreManager : MonoBehaviour
     int rows;
     int level = 1;
 
+    public int pointsToLevel2 = 1000;
+    public int pointsToLevel3 = 3000;
+
     public static int hopeLevel = 1;
 
     public int linesPerLevel = 5;
@@ -55,10 +58,10 @@ public class ScoreManager : MonoBehaviour
                 break;
         }
 
-        if(score >= 50 && score < 80)
+        if(score >= pointsToLevel2 && score < pointsToLevel3)
         {
             hopeLevel = 2;
-        }else if(score >= 80)
+        }else if(score >= pointsToLevel3)
         {
             hopeLevel = 3;
         }
