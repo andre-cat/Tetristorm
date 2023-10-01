@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -28,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float turbulenceAmplitude = 0f;
     [SerializeField] private float turbulenceFrequency = 0f;
 
-    private Rigidbody body;
     private Vector3 firstPosition;
 
     private bool isPitching;
@@ -37,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        body = gameObject.GetComponent<Rigidbody>();
         isYawing = false;
     }
 

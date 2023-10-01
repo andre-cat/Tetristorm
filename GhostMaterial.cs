@@ -15,7 +15,6 @@ public class GhostMaterial : MonoBehaviour
     public void Disappear()
     {
         StartCoroutine(ChangeColor(material, 1, 0, seconds));
-        gameObject.SetActive(false);
     }
 
     private IEnumerator ChangeColor(Material material, float initAlpha, float endAlpha, float seconds)

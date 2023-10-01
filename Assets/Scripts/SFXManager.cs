@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class SFXManager : MonoBehaviour
@@ -14,6 +15,9 @@ public class SFXManager : MonoBehaviour
     [SerializeField] private AudioClip[] tetrisSFX;
     public int i = 0;
     public int index;
+
+    [SerializeField] private Weather weather;
+
     void Start()
     {
         sfxAudioSource = GetComponent<AudioSource>();//canvasinnit
@@ -31,12 +35,16 @@ public class SFXManager : MonoBehaviour
         i = Random.Range(0, thunderSFX.Length);
         sfxAudioSource.clip = thunderSFX[i];
         sfxAudioSource.volume = Volume;
-        sfxAudioSource.Play();
+
+        if (SceneManager.GetActiveScene().name != "Game" || (SceneManager.GetActiveScene().name != "Game" && (int)weather.Momentum > (int)Momentum.Cloudy))
+        {
+            sfxAudioSource.Play();
+        }
     }
 
     public void SFXTetris()
     {
-        index = Random.Range(0,tetrisSFX.Length);
+        index = Random.Range(0, tetrisSFX.Length);
         sfxAudioSource.volume = Volume;
         sfxAudioSource.PlayOneShot(tetrisSFX[index]);
     }

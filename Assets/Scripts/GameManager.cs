@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
         crossFadeAnim.SetBool("SceneCompleted", true);
         Time.timeScale = 1;
         yield return new WaitForSeconds(crossfadeAnimClip.length + 0.5f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
-        SceneManager.LoadScene(-1);
+        SceneManager.LoadScene("GameOver");
         audioManager.PlayGameOverMusic();
     }
 

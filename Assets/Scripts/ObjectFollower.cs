@@ -13,7 +13,7 @@ public class ObjectFollower : MonoBehaviour
         offset = target.position - transform.position;
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         Vector3 position = target.position;
 

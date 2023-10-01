@@ -8,38 +8,61 @@ public class WeatherElements : MonoBehaviour
     [Header("REFERENCES")]
     [SerializeField] private Weather weather;
 
-    [Space(1)]
-    [SerializeField] private GameObject clouds;
-    [SerializeField] private GameObject rain;
-    [SerializeField] private GameObject storms;
+    [Header("-- Clouds")]
+    [SerializeField] private ParticleSystem cloudParticles1;
+    [SerializeField] private ParticleSystem cloudParticles2;
+
+    [Header("-- Rain")]
+    [SerializeField] private ParticleSystem rain;
+
+    [Header("-- Storm")]
+    [SerializeField] private ParticleSystem storms;
 
     private void FixedUpdate()
     {
         if ((int)weather.Momentum < (int)Momentum.Cloudy)
         {
-            clouds.GetComponent<GhostMaterial>().Disappear();
+
+            if (cloudParticles1.gameObject.activeSelf)
+            {
+                cloudParticles1.gameObject.SetActive(false);
+            }
+
+            if (cloudParticles2.gameObject.activeSelf)
+            {
+                cloudParticles2.gameObject.SetActive(false);
+            }
         }
         else
         {
-            clouds.SetActive(true);
+
+            if (!cloudParticles1.gameObject.activeSelf)
+            {
+                cloudParticles1.gameObject.SetActive(true);
+            }
+
+            if (!cloudParticles2.gameObject.activeSelf)
+            {
+                cloudParticles2.gameObject.SetActive(true);
+            }
         }
 
         if ((int)weather.Momentum < (int)Momentum.Rainy)
         {
-            rain.GetComponent<GhostMaterial>().Disappear();
+            rain.gameObject.SetActive(false);
         }
         else
         {
-            rain.SetActive(true);
+            rain.gameObject.SetActive(true);
         }
 
         if ((int)weather.Momentum < (int)Momentum.Stormy)
         {
-            storms.GetComponent<GhostMaterial>().Disappear();
+            storms.gameObject.SetActive(false);
         }
         else
         {
-            storms.SetActive(true);
+            storms.gameObject.SetActive(true);
         }
     }
 }
