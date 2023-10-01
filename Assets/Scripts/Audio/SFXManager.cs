@@ -36,7 +36,7 @@ public class SFXManager : MonoBehaviour
         sfxAudioSource.clip = thunderSFX[i];
         sfxAudioSource.volume = Volume;
 
-        if (SceneManager.GetActiveScene().name != "Game" || (SceneManager.GetActiveScene().name != "Game" && (int)weather.Momentum > (int)Momentum.Cloudy))
+        if (SceneManager.GetActiveScene().name != "Game" || (SceneManager.GetActiveScene().name == "Game" && (int)weather.Momentum > (int)Momentum.Cloudy))
         {
             sfxAudioSource.Play();
         }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaneMovement : MonoBehaviour
+public class OldPlaneMovement : MonoBehaviour
 {
 
     [Header("For the Sine Movement")]

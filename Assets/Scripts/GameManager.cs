@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public Animator crossFadeAnim;
     public AnimationClip crossfadeAnimClip;
     public int sceneNumber;
-    AudioManager audioManager;
+    public AudioManager audioManager;
 
     public bool isPaused = false;
     public GameObject pausePanel;
@@ -100,9 +100,9 @@ public class GameManager : MonoBehaviour
     {
         crossFadeAnim.SetBool("SceneCompleted", true);
         Time.timeScale = 1;
-        yield return new WaitForSeconds(crossfadeAnimClip.length + 0.5f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
         SceneManager.LoadScene("GameOver");
-        audioManager.PlayGameOverMusic();
+        yield return new WaitForSeconds(100); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
+        //audioManager.PlayGameOverMusic();
     }
 
 }
