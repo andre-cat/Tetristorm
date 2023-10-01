@@ -9,6 +9,8 @@ public class ScoreManager : MonoBehaviour
     int rows;
     int level = 1;
 
+    public static int hopeLevel = 1;
+
     public int linesPerLevel = 5;
     public float fadeTimer = 0.2f;
 
@@ -17,6 +19,7 @@ public class ScoreManager : MonoBehaviour
 
     public TextMeshProUGUI hopePoints;
     public TextMeshProUGUI textMultiplier;
+    public TextMeshProUGUI UiHopeLevel;
     void Start()
     {
         Reset();
@@ -52,6 +55,14 @@ public class ScoreManager : MonoBehaviour
                 break;
         }
 
+        if(score >= 50 && score < 80)
+        {
+            hopeLevel = 2;
+        }else if(score >= 80)
+        {
+            hopeLevel = 3;
+        }
+
         UpdateUIText();
     }
 
@@ -66,6 +77,11 @@ public class ScoreManager : MonoBehaviour
         if (hopePoints)
         {
             hopePoints.text ="Hope Points: "+ score.ToString();
+        }
+
+        if (UiHopeLevel)
+        {
+            UiHopeLevel.text = hopeLevel.ToString();
         }
     }
 
