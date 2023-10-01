@@ -10,7 +10,7 @@ public class Board : MonoBehaviour
 
     public int header = 8;
 
-    public int levelReached = 0;
+    public static int levelReached = 0;
 
     Transform[,] grid;
     public int completedRows = 0;
