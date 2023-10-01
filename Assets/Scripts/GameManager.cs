@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public bool isPaused = false;
     public GameObject pausePanel;
 
-    // Start is called before the first frame update
+    public static bool gameOver;
+
     void Start()
     {
         crossFadeAnim = GameObject.Find("PanelForCrossfade").GetComponent<Animator>();
@@ -23,14 +24,15 @@ public class GameManager : MonoBehaviour
         {
             pausePanel.SetActive(false);
         }
+
+        gameOver = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (gameOver)
         {
-            Wrapper();
+            StartCoroutine(nameof(GameOver));
         }
 
         ChangeMusicForScene();
@@ -83,7 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        StartCoroutine("MainMenu");
+        StartCoroutine(nameof(MainMenu));
     }
 
     public IEnumerator MainMenu()
@@ -92,7 +94,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         yield return new WaitForSeconds(crossfadeAnimClip.length + 0.5f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
         SceneManager.LoadScene(0);
+    }
 
+    public IEnumerator GameOver()
+    {
+        crossFadeAnim.SetBool("SceneCompleted", true);
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(crossfadeAnimClip.length + 0.5f); // used 1 seconds instead of crossfadeAnimClip.length bc it wasn't working properly idk why. (I know the length is 1 seconds bc the inspector)
+        SceneManager.LoadScene(-1);
+        audioManager.PlayGameOverMusic();
     }
 
 }
