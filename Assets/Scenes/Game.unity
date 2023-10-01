@@ -476,6 +476,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1071dc7a93d5544a852be230e10ba60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1008871456 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6826306071031756914, guid: d758c3c8ea28a1d41a09f23c916bf48d, type: 3}
+  m_PrefabInstance: {fileID: 1452201121}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1020987249
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +896,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1452201122}
     - target: {fileID: 6593762292646947331, guid: a4c9c06b731fac745b676a3e2d8441c4, type: 3}
+      propertyPath: UiHopeLevel
+      value: 
+      objectReference: {fileID: 1008871456}
+    - target: {fileID: 6593762292646947331, guid: a4c9c06b731fac745b676a3e2d8441c4, type: 3}
       propertyPath: textMultiplier
       value: 
       objectReference: {fileID: 1217441086}
@@ -1092,10 +1107,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weather
       objectReference: {fileID: 0}
-    - target: {fileID: 3336699047182476243, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
-      propertyPath: sunLight
-      value: 
-      objectReference: {fileID: 1020987250}
     - target: {fileID: 3432767233132259882, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
       propertyPath: sunLight
       value: 
@@ -1141,14 +1152,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8047685596468587563, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
-      propertyPath: board
-      value: 
-      objectReference: {fileID: 998783636}
-    - target: {fileID: 8047685596468587563, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
-      propertyPath: changeByWeather
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8060558920657522819, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
       propertyPath: board
       value: 
       objectReference: {fileID: 998783636}
