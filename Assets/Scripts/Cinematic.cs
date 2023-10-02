@@ -5,8 +5,10 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Cinematic : MonoBehaviour
 {
-
+    [Header("REFERENCES")]
     [SerializeField] private Material skyMaterial;
+    [SerializeField] private GameObject returnPanel;
+    [SerializeField][Min(0)] private int hope = 0;
 
     [Header("HOPE 1")]
     [SerializeField] private GameObject deadScene;
@@ -18,18 +20,25 @@ public class Cinematic : MonoBehaviour
 
     [Header("HOPE 3")]
     [SerializeField] private GameObject hopeScene;
+    [SerializeField] private Material fakeSky;
     [SerializeField] private Material hopeMaterial;
     [SerializeField] private Material hopelessMaterial;
-    [SerializeField] private GameObject returnPanel;
 
     void Start()
     {
-        StartLevel();
+        if (hope == 0)
+        {
+            StartLevel(ScoreManager.hopeLevel);
+        }
+        else
+        {
+            StartLevel(hope);
+        }
     }
 
-    private void StartLevel()
+    private void StartLevel(int hopeLevel)
     {
-        switch (ScoreManager.hopeLevel)
+        switch (hopeLevel)
         {
             case 1:
                 skyMaterial = deadMaterial;
@@ -40,8 +49,8 @@ public class Cinematic : MonoBehaviour
                 dutyScene.SetActive(true);
                 break;
             case 3:
+                StartCoroutine(ChangeStyledMaterial(hopelessMaterial, hopeMaterial, 10));
                 hopeScene.SetActive(true);
-                StartCoroutine(ChangeStyledMaterial(hopelessMaterial, hopeMaterial, 5));
                 break;
         }
     }

@@ -33,7 +33,9 @@ public class GameManager : MonoBehaviour
         if (gameOver)
         {
             StartCoroutine(nameof(GameOver));
+            gameOver = false;
         }
+
 
         ChangeMusicForScene();
 

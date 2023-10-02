@@ -9,8 +9,8 @@ public class ScoreManager : MonoBehaviour
     int rows;
     int level = 1;
 
-    public int pointsToLevel2 = 1000;
-    public int pointsToLevel3 = 3000;
+    public int pointsToLevel2 = 300;
+    public int pointsToLevel3 = 600;
 
     public static int hopeLevel = 1;
 
@@ -73,6 +73,8 @@ public class ScoreManager : MonoBehaviour
     {
         level = 1;
         rows = linesPerLevel + level;
+        score = 0;
+        hopeLevel = 1;
     }
 
     void UpdateUIText()
