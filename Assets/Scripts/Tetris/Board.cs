@@ -35,6 +35,7 @@ public class Board : MonoBehaviour
 
     void Start()
     {
+        levelReached = 0;
         transform.position = new Vector3(-20.34f, -10.45f, 1.82f);
         DrawEmptyCell();
         sfxManager = GameObject.Find("Canvas").GetComponent<SFXManager>();

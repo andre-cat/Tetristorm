@@ -35,7 +35,7 @@ public class WeatherManager : MonoBehaviour
         if (currentLevel != Board.levelReached)
         {
             currentLevel = Board.levelReached;
-            Debug.Log(Board.levelReached);
+            //Debug.Log(Board.levelReached);
             switch (Board.levelReached)
             {
                 case 0:
@@ -52,7 +52,7 @@ public class WeatherManager : MonoBehaviour
                     break;
                 case 4:
                     GameManager.gameOver = true;
-                    Debug.Log("GAME OVER");
+                    //Debug.Log("GAME OVER");
                     break;
             }
         }
