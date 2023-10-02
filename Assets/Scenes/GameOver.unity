@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11478237, g: 0.28003004, b: 0.3356672, a: 1}
+  m_IndirectSpecularColor: {r: 0.6494871, g: 0.7731114, b: 0.834781, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1320,6 +1320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skyMaterial: {fileID: 2100000, guid: e00645515bdcfeb4fab9404359151796, type: 2}
   returnPanel: {fileID: 1804782153}
+  hope: 0
   deadScene: {fileID: 1893234000}
   deadMaterial: {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
   dutyScene: {fileID: 1513354958}

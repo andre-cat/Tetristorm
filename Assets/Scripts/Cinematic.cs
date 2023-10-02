@@ -8,6 +8,7 @@ public class Cinematic : MonoBehaviour
     [Header("REFERENCES")]
     [SerializeField] private Material skyMaterial;
     [SerializeField] private GameObject returnPanel;
+    [SerializeField][Min(0)] private int hope = 0;
 
     [Header("HOPE 1")]
     [SerializeField] private GameObject deadScene;
@@ -25,8 +26,14 @@ public class Cinematic : MonoBehaviour
 
     void Start()
     {
-        StartLevel(ScoreManager.hopeLevel);
-        //StartLevel(3);
+        if (hope == 0)
+        {
+            StartLevel(ScoreManager.hopeLevel);
+        }
+        else
+        {
+            StartLevel(hope);
+        }
     }
 
     private void StartLevel(int hopeLevel)
