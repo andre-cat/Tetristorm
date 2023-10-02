@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: BUNGEE-REGULAR SDF
+  m_Name: BungeeRegular_SDF
   m_EditorClassIdentifier: 
   hashCode: -1857398408
   material: {fileID: -7323315644382108327}
@@ -274,6 +274,21 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
+  - m_Index: 21
+    m_Metrics:
+      m_Width: 48.25
+      m_Height: 64.796875
+      m_HorizontalBearingX: 6.203125
+      m_HorizontalBearingY: 64.796875
+      m_HorizontalAdvance: 58.859375
+    m_GlyphRect:
+      m_X: 302
+      m_Y: 430
+      m_Width: 49
+      m_Height: 65
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
   - m_Index: 31
     m_Metrics:
       m_Width: 46.625
@@ -285,6 +300,21 @@ MonoBehaviour:
       m_X: 843
       m_Y: 262
       m_Width: 47
+      m_Height: 65
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 32
+    m_Metrics:
+      m_Width: 53.734375
+      m_Height: 64.796875
+      m_HorizontalBearingX: 5.21875
+      m_HorizontalBearingY: 64.796875
+      m_HorizontalAdvance: 63.71875
+    m_GlyphRect:
+      m_X: 152
+      m_Y: 434
+      m_Width: 54
       m_Height: 65
     m_Scale: 1
     m_AtlasIndex: 0
@@ -1114,36 +1144,6 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
-  - m_Index: 32
-    m_Metrics:
-      m_Width: 53.734375
-      m_Height: 64.796875
-      m_HorizontalBearingX: 5.21875
-      m_HorizontalBearingY: 64.796875
-      m_HorizontalAdvance: 63.71875
-    m_GlyphRect:
-      m_X: 152
-      m_Y: 434
-      m_Width: 54
-      m_Height: 65
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
-  - m_Index: 21
-    m_Metrics:
-      m_Width: 48.25
-      m_Height: 64.796875
-      m_HorizontalBearingX: 6.203125
-      m_HorizontalBearingY: 64.796875
-      m_HorizontalAdvance: 58.859375
-    m_GlyphRect:
-      m_X: 302
-      m_Y: 430
-      m_Width: 49
-      m_Height: 65
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
@@ -1266,8 +1266,16 @@ MonoBehaviour:
     m_GlyphIndex: 19
     m_Scale: 1
   - m_ElementType: 1
+    m_Unicode: 69
+    m_GlyphIndex: 21
+    m_Scale: 1
+  - m_ElementType: 1
     m_Unicode: 70
     m_GlyphIndex: 31
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 71
+    m_GlyphIndex: 32
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 72
@@ -1416,14 +1424,6 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 8230
     m_GlyphIndex: 229
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 71
-    m_GlyphIndex: 32
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 69
-    m_GlyphIndex: 21
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: -7209915974875294189}
