@@ -1605,9 +1605,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Menu
-  transitionSeconds: 2
-  cover: {fileID: 96361090}
+  cover: {fileID: 96361096}
   crossfadeTrigger: exit
+  animationClip: {fileID: 7400000, guid: de583ef0fd540ef49b72118e9d8f7d71, type: 2}
+  lastDelay: 0
 --- !u!1001 &1286079337
 PrefabInstance:
   m_ObjectHideFlags: 0

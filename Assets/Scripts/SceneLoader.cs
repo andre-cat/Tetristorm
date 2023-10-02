@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private string scene;
-    [SerializeField] private float transitionSeconds;
-    [SerializeField] private GameObject cover;
+    [SerializeField] private Image cover;
     [SerializeField] private string crossfadeTrigger;
+    [SerializeField] private AnimationClip animationClip;
+    [SerializeField] private float lastDelay;
 
     private Button button;
 
@@ -21,15 +22,14 @@ public class SceneLoader : MonoBehaviour
 
     public void GoToScene()
     {
-        StartCoroutine(GoToScene(scene, transitionSeconds));
+        StartCoroutine(GoToScene(scene));
     }
 
-    private IEnumerator GoToScene(string sceneName, float transitionSeconds)
+    private IEnumerator GoToScene(string sceneName)
     {
-        cover.GetComponent<Animator>().SetTrigger(crossfadeTrigger);
-        yield return new WaitForSecondsRealtime(0.5f);
+        cover.gameObject.GetComponent<Animator>().SetTrigger(crossfadeTrigger);
+        yield return new WaitForSecondsRealtime(animationClip.length + lastDelay);
         SceneManager.LoadScene(sceneName);
-        yield return new WaitForSecondsRealtime(transitionSeconds);
     }
 
 }
