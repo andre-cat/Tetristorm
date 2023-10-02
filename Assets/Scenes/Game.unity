@@ -1030,6 +1030,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1008871456}
     - target: {fileID: 6593762292646947331, guid: a4c9c06b731fac745b676a3e2d8441c4, type: 3}
+      propertyPath: pointsToLevel2
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593762292646947331, guid: a4c9c06b731fac745b676a3e2d8441c4, type: 3}
+      propertyPath: pointsToLevel3
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593762292646947331, guid: a4c9c06b731fac745b676a3e2d8441c4, type: 3}
       propertyPath: textMultiplier
       value: 
       objectReference: {fileID: 1217441086}
