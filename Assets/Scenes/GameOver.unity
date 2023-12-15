@@ -1320,13 +1320,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skyMaterial: {fileID: 2100000, guid: e00645515bdcfeb4fab9404359151796, type: 2}
   returnPanel: {fileID: 1804782153}
-  hope: 0
+  hope: 3
   deadScene: {fileID: 1893234000}
   deadMaterial: {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
   dutyScene: {fileID: 1513354958}
   dutyMaterial: {fileID: 2100000, guid: 528363c5c1cf6a7458140c6851c77b68, type: 2}
   hopeScene: {fileID: 1904674724}
-  fakeSky: {fileID: 2100000, guid: dbb7a513b375d184fb35e9867c79a261, type: 2}
   hopeMaterial: {fileID: 2100000, guid: 1bffd8a776ebb1d4dbfe5186cfb0517c, type: 2}
   hopelessMaterial: {fileID: 2100000, guid: 8a3a8b3deca36e344b41bc572cf098e8, type: 2}
 --- !u!82 &1000810810

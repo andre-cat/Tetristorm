@@ -8,6 +8,7 @@ public class WeatherManager : MonoBehaviour
     [SerializeField] private Weather weather;
 
     [Header("WEATHER CHANGE")]
+    [SerializeField] private bool showAll = false;
     [SerializeField] private bool changeByMomentum = false;
     [SerializeField] private Momentum momentum = Momentum.Sunny;
 
@@ -16,18 +17,36 @@ public class WeatherManager : MonoBehaviour
     private void Start()
     {
         currentLevel = 0;
+        if (showAll)
+        {
+            StartCoroutine(ShowAll());
+        }
     }
 
     private void Update()
     {
-        if (changeByMomentum)
+        if (!showAll)
         {
-            SetWeatherByMomentum();
+            if (changeByMomentum)
+            {
+                SetWeatherByMomentum();
+            }
+            else
+            {
+                SetWeatherByScore();
+            }
         }
-        else
-        {
-            SetWeatherByScore();
-        }
+    }
+
+    private IEnumerator ShowAll()
+    {
+        weather.Momentum = Momentum.Sunny;
+        yield return new WaitForSeconds(5);
+        weather.Momentum = Momentum.Cloudy;
+        yield return new WaitForSeconds(5);
+        weather.Momentum = Momentum.Rainy;
+        yield return new WaitForSeconds(5);
+        weather.Momentum = Momentum.Stormy;
     }
 
     public void SetWeatherByScore()

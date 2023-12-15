@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: BungeeRegular_SDF
   m_EditorClassIdentifier: 
-  hashCode: -1857398408
+  hashCode: -1978402358
   material: {fileID: -7323315644382108327}
-  materialHashCode: -1756803880
+  materialHashCode: 979105450
   m_Version: 1.1.0
   m_SourceFontFileGUID: 8569e335887a35c429db9e91f5a84251
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 8569e335887a35c429db9e91f5a84251, type: 3}

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class Cinematic : MonoBehaviour
 {
@@ -20,7 +19,6 @@ public class Cinematic : MonoBehaviour
 
     [Header("HOPE 3")]
     [SerializeField] private GameObject hopeScene;
-    [SerializeField] private Material fakeSky;
     [SerializeField] private Material hopeMaterial;
     [SerializeField] private Material hopelessMaterial;
 

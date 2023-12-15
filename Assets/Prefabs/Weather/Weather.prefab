@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4890638114712958346}
-  - component: {fileID: 8047685596468587563}
   - component: {fileID: 3432767233132259882}
+  - component: {fileID: 8047685596468587563}
   - component: {fileID: 3863173935033365456}
   m_Layer: 0
   m_Name: Weather
@@ -37,21 +37,6 @@ Transform:
   - {fileID: 3442674673920265186}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8047685596468587563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149045716537102199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32a15e3c4e2f1a845a11c1653dfc55b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weather: {fileID: 3432767233132259882}
-  changeByMomentum: 1
-  momentum: 1
 --- !u!114 &3432767233132259882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +58,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ab019391fcacf34cb41efdeb8bef74c, type: 2}
   - {fileID: 11400000, guid: e3de46e4a11838b40877718e8493446e, type: 2}
   transitionSeconds: 5
+--- !u!114 &8047685596468587563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149045716537102199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a15e3c4e2f1a845a11c1653dfc55b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weather: {fileID: 3432767233132259882}
+  showAll: 0
+  changeByMomentum: 1
+  momentum: 1
 --- !u!114 &3863173935033365456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +90,8 @@ MonoBehaviour:
   cloudParticles1: {fileID: 85997231138223128}
   cloudParticles2: {fileID: 4607713905977285080}
   rain: {fileID: 4456388783291956072}
-  storms: {fileID: 6392224164466065787}
+  storms1: {fileID: 0}
+  storms2: {fileID: 0}
 --- !u!1 &1606413777595885475
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,8 +824,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
---- !u!198 &6392224164466065787 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4435939262975650695, guid: 107a3d635e15e6a43ab7e090401666be, type: 3}
-  m_PrefabInstance: {fileID: 7294179119627250428}
-  m_PrefabAsset: {fileID: 0}

@@ -306,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &835987799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2DCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 7854034668068778517, guid: f96ff86e06bb77f4481076db14d256a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -722,6 +726,10 @@ PrefabInstance:
     - target: {fileID: 1463834072608324288, guid: adec91f5f6aca9d4399c6c1998409ae8, type: 3}
       propertyPath: m_Name
       value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463834072608324288, guid: adec91f5f6aca9d4399c6c1998409ae8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4580339120574256468, guid: adec91f5f6aca9d4399c6c1998409ae8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1045,6 +1053,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7241453662214031565, guid: a4c9c06b731fac745b676a3e2d8441c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1069,6 +1081,10 @@ PrefabInstance:
     - target: {fileID: 2578257644516767711, guid: d758c3c8ea28a1d41a09f23c916bf48d, type: 3}
       propertyPath: m_Name
       value: 2Dcanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2578257644516767711, guid: d758c3c8ea28a1d41a09f23c916bf48d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8535265033543702177, guid: d758c3c8ea28a1d41a09f23c916bf48d, type: 3}
       propertyPath: m_Pivot.x
@@ -1182,6 +1198,10 @@ PrefabInstance:
     - target: {fileID: 4065865546313575057, guid: 1fb7e4da0d8c61b42a0b416a9ebf1860, type: 3}
       propertyPath: m_Name
       value: PanelController
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065865546313575057, guid: 1fb7e4da0d8c61b42a0b416a9ebf1860, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4753491171516254132, guid: 1fb7e4da0d8c61b42a0b416a9ebf1860, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1318,8 +1338,16 @@ PrefabInstance:
       value: RedStorms
       objectReference: {fileID: 0}
     - target: {fileID: 8047685596468587563, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
-      propertyPath: changeByMomentum
+      propertyPath: showAll
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047685596468587563, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
+      propertyPath: momentum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047685596468587563, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
+      propertyPath: changeByMomentum
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8891455044305057084, guid: fb85a487ca6d7d64e909e20fd216bd64, type: 3}
       propertyPath: target
@@ -1474,7 +1502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1967105623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,6 +1768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Board
       objectReference: {fileID: 0}
+    - target: {fileID: 5937720472259003538, guid: d0ffebf0bf2b552429318659731a3d41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1867,7 +1899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &3494119125383939768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1919,6 +1951,10 @@ PrefabInstance:
     - target: {fileID: 838259140982428306, guid: b2f6ba79cc54f0b4086fac770984f7f0, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 838259140982428306, guid: b2f6ba79cc54f0b4086fac770984f7f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 887705440156352447, guid: b2f6ba79cc54f0b4086fac770984f7f0, type: 3}
       propertyPath: board
